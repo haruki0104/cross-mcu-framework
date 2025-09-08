@@ -1,22 +1,22 @@
 === Cross-MCU Framework 建置驗證報告 ===
-驗證時間: 公曆 20廿五年 九月 六日 週六 〇時九分廿三秒
+驗證時間: 公曆 20廿五年 九月 八日 週一 十六時十二分52秒
 平台: TI C2000 F28P55X
 建置配置: Debug
 
 === 生成的文件 ===
 total 72
-drwxrwxr-x 2 patrick patrick  4096  九   5 23:43 .
-drwxrwxr-x 5 patrick patrick  4096  九   5 23:42 ..
--rw-rw-r-- 1 patrick patrick  1800  九   5 23:43 gpio_blink_example.hex
--rw-rw-r-- 1 patrick patrick 22604  九   5 23:43 gpio_blink_example.out
--rw-rw-r-- 1 patrick patrick  3496  九   5 23:43 uart_echo_example.hex
--rw-rw-r-- 1 patrick patrick 29260  九   5 23:43 uart_echo_example.out
+drwxrwxr-x 2 patrick patrick  4096  九   8 16:12 .
+drwxrwxr-x 5 patrick patrick  4096  九   8 16:12 ..
+-rw-rw-r-- 1 patrick patrick  1800  九   8 16:12 gpio_blink_example.hex
+-rw-rw-r-- 1 patrick patrick 22580  九   8 16:12 gpio_blink_example.out
+-rw-rw-r-- 1 patrick patrick  3496  九   8 16:12 uart_echo_example.hex
+-rw-rw-r-- 1 patrick patrick 29336  九   8 16:12 uart_echo_example.out
 
 === HAL函式庫 ===
 total 72
-drwxrwxr-x 2 patrick patrick  4096  九   5 23:42 .
-drwxrwxr-x 5 patrick patrick  4096  九   5 23:42 ..
--rw-rw-r-- 1 patrick patrick 61964  九   5 23:42 libcross_mcu_hal.a
+drwxrwxr-x 2 patrick patrick  4096  九   8 16:12 .
+drwxrwxr-x 5 patrick patrick  4096  九   8 16:12 ..
+-rw-rw-r-- 1 patrick patrick 62656  九   8 16:12 libcross_mcu_hal.a
 
 === 文件格式驗證 ===
 gpio_blink_example.out: build/TI_C2000_F28P55X_Debug/bin/gpio_blink_example.out: ELF 32-bit LSB executable, TI TMS320C2000 DSP family, version 1 (SYSV), statically linked, with debug_info, not stripped
