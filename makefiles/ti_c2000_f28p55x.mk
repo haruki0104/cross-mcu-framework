@@ -116,10 +116,35 @@ else
     COMPILE_CMD = $(CC) $(CFLAGS) $(INCLUDE_DIRS) $(PLATFORM_INCLUDE_DIRS) $(PLATFORM_DEFINES) -c $< -o $@
 endif
 
+# DriverLib使用配置 (可以通過環境變數或命令列覆蓋)
+TI_C2000_USE_DRIVERLIB ?= 0
+
 # 平台特定HAL源檔案
-PLATFORM_HAL_SOURCES := ti_c2000/ti_c2000_gpio_simple.c \
-                        ti_c2000/ti_c2000_system_simple.c \
-                        ti_c2000/ti_c2000_uart_simple.c
+ifeq ($(TI_C2000_USE_DRIVERLIB),1)
+    # DriverLib版本的源檔案
+    PLATFORM_HAL_SOURCES := ti_c2000/driverlib/ti_c2000_gpio_dl.c \
+                            ti_c2000/simple/ti_c2000_system_simple.c \
+                            ti_c2000/simple/ti_c2000_uart_simple.c
+    
+    # DriverLib特定的編譯定義
+    PLATFORM_DEFINES += --define=TI_C2000_USE_DRIVERLIB=1
+    
+    # 檢查C2000Ware是否可用
+    ifneq ($(wildcard $(C2000WARE_PATH)),)
+        $(info Using DriverLib implementation with C2000Ware at $(C2000WARE_PATH))
+    else
+        $(warning C2000Ware not found at $(C2000WARE_PATH), falling back to simple implementation)
+        TI_C2000_USE_DRIVERLIB := 0
+    endif
+else
+    # 簡化版本的源檔案
+    PLATFORM_HAL_SOURCES := ti_c2000/simple/ti_c2000_gpio_simple.c \
+                            ti_c2000/simple/ti_c2000_system_simple.c \
+                            ti_c2000/simple/ti_c2000_uart_simple.c
+    
+    PLATFORM_DEFINES += --define=TI_C2000_USE_DRIVERLIB=0
+    $(info Using simple implementation (no C2000Ware dependency))
+endif
 
 # 連結描述檔 (如果使用TI編譯器)
 ifeq ($(CC),$(TI_CCS_PATH)/bin/cl2000)

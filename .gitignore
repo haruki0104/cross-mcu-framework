@@ -1,20 +1,20 @@
-# Build directories
+# Build outputs
 build/
+*.o
+*.obj
 *.out
 *.hex
+*.bin
 *.map
-*.obj
-*.o
-*.a
-*.lib
+*.lst
+*.pp
 
 # IDE files
 .vscode/
 .idea/
-*.suo
-*.user
-*.userosscache
-*.sln.docstates
+*.swp
+*.swo
+*~
 
 # OS generated files
 .DS_Store
@@ -25,37 +25,47 @@ build/
 ehthumbs.db
 Thumbs.db
 
-# TI specific files
+# Temporary files
+*.tmp
+*.temp
+*.log
+
+# TI specific
+*.projectspec
 *.ccsproject
 *.cproject
 *.project
-*.settings/
-*.launches/
-Debug/
-Release/
+.metadata/
+.launches/
+.settings/
 
-# Temporary files
-*~
-*.swp
-*.swo
-*.tmp
+# Backup files
+*.bak
+*.orig
 
-# Log files
-*.log
-
-# Verification reports
-build_verification_report.txt
-analyze_hex.py
-verify_build.sh
-
-# Compiled Python files
-__pycache__/
-*.py[cod]
-*$py.class
-
-# C2000Ware (if included locally)
-third_party/C2000Ware*/
-
-# Generated documentation
+# Documentation generated files
 docs/html/
 docs/latex/
+
+# Test outputs
+test_results/
+coverage/
+
+# Distribution packages
+*.tar.gz
+*.zip
+
+# Local configuration
+local_config.mk
+user_settings.mk
+
+# Third party libraries (optional - uncomment if not including them)
+# third_party/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Node.js (if using any JS tools)
+node_modules/
