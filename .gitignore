@@ -1,0 +1,61 @@
+# Build directories
+build/
+*.out
+*.hex
+*.map
+*.obj
+*.o
+*.a
+*.lib
+
+# IDE files
+.vscode/
+.idea/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# TI specific files
+*.ccsproject
+*.cproject
+*.project
+*.settings/
+*.launches/
+Debug/
+Release/
+
+# Temporary files
+*~
+*.swp
+*.swo
+*.tmp
+
+# Log files
+*.log
+
+# Verification reports
+build_verification_report.txt
+analyze_hex.py
+verify_build.sh
+
+# Compiled Python files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C2000Ware (if included locally)
+third_party/C2000Ware*/
+
+# Generated documentation
+docs/html/
+docs/latex/
