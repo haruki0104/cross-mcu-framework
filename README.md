@@ -85,12 +85,32 @@ make TARGET_PLATFORM=TI_C2000_F28P55X BUILD_TYPE=Debug
 make gpio_blink TARGET_PLATFORM=TI_C2000_F28P55X
 ```
 
+
 ### 3. 燒錄程式
 
 生成的文件位於 `build/TARGET_PLATFORM_BUILD_TYPE/bin/`：
 
 - `.out` 文件：用於Code Composer Studio除錯
 - `.hex` 文件：用於燒錄工具
+
+#### TI C2000 F28P55x MCU 燒錄教學
+
+本專案提供 `program.sh` 腳本，搭配 `ti_c2000_f28p55x.ccxml` 設定檔，可自動將編譯產生的檔案燒錄至開發板。
+
+**需求：**
+- TI Code Composer Studio (CCS) 或 Debug Server Scripting Lite (dslite)
+- `ti_c2000_f28p55x.ccxml` 設定檔（已隨專案提供）
+- 欲燒錄的 `.hex` 或 `.out` 檔案
+
+**使用方式：**
+1. 確認 `dslite.sh` 已安裝（預設路徑為 `/opt/ti/ccs_base/DebugServer/bin/dslite.sh`），如有不同請編輯 `program.sh` 內的 `DSLite_PATH` 變數。
+2. 執行腳本：
+	```bash
+	./program.sh build/TI_C2000_F28P55X_Debug/bin/gpio_blink_example.out
+	```
+3. 腳本會自動燒錄並驗證檔案。
+
+如遇錯誤請檢查檔案路徑與工具安裝情形。
 
 ## 📖 DriverLib整合
 
